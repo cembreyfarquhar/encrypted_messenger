@@ -1,41 +1,47 @@
 package encryptdecrypt;
 
-import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Main {
-    Hashtable<Character, Character> secrets = new Hashtable<Character, Character>();
-    secrets.put('a', 'z');
-    secrets.put('b', 'y');
-    secrets.put('c', 'x');
-    secrets.put('d', 'w');
-    secrets.put('e', 'v');
-    secrets.put('f', 'u');
-    secrets.put('g', 't');
-    secrets.put('h', 's');
-    secrets.put('i', 'r');
-    secrets.put('j', 'q');
-    secrets.put('k', 'p');
-    secrets.put('l', 'o');
-    secrets.put('m', 'n');
-    secrets.put('n', 'm');
-    secrets.put('o', 'l');
-    secrets.put('p', 'k');
-    secrets.put('q', 'j');
-    secrets.put('r', 'i');
-    secrets.put('s', 'h');
-    secrets.put('t', 'g');
-    secrets.put('u', 'f');
-    secrets.put('v', 'e');
-    secrets.put('w', 'd');
-    secrets.put('x', 'c');
-    secrets.put('y', 'b');
-    secrets.put('z', 'a');
+    final static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        String originalMessage = "we found a treasure!";
-        String[] messageArr = originalMessage.split("");
+        String message = scanner.nextLine();
+        int key = scanner.nextInt();
+
+        char[] messageArr = message.toCharArray();
+
         for (int i = 0; i < messageArr.length; i++) {
-            
+            char letter = messageArr[i];
+            int asciiCode = letter;
+
+            if (asciiCode >= 97 && asciiCode <= 122) {
+                int newAsciiCode = asciiCode + key;
+                if (newAsciiCode > 122) {
+                    newAsciiCode = 96 + (newAsciiCode % 122);
+                }
+                char newLetter = (char) newAsciiCode;
+                messageArr[i] = newLetter;
+            }
         }
-        System.out.println("Hello World!");
+        String encryptedMessage = new String(messageArr);
+        System.out.println(encryptedMessage);
     }
 }
+
+/*
+  a - z
+  b - y
+  c - x
+  d - w
+  e - v
+  f - u
+  g - t
+  h - s
+  i - r
+  j - q
+  k - p
+  l - o
+  m - n
+ */
+
