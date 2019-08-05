@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-05T17:47:35" hostname="pop-os" time="0.026">
+<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-05T18:18:18" hostname="pop-os" time="0.027">
   <properties/>
-  <testcase name="start" classname="EncryptDecryptTest" time="0.026"/>
+  <testcase name="start" classname="EncryptDecryptTest" time="0.027"/>
   <system-out><![CDATA[\jqhtrj%yt%m~ujwxpnqq&
 Hello
 123456789
 Welcome to hyperskill!
-Hello
+Hi
 111122223333
 ]]></system-out>
   <system-err><![CDATA[Start test 1

@@ -1,14 +1,43 @@
 package encryptdecrypt;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String operation = scanner.nextLine();
-        String message = scanner.nextLine();
-        String keyInput = scanner.nextLine();
+//        String operation = scanner.nextLine();
+//        String message = scanner.nextLine();
+//        String keyInput = scanner.nextLine();
+
+        String operation;
+        String message;
+        String keyInput;
+
+        List<String> argList = Arrays.asList(args);
+        if (!argList.contains("-mode")) {
+            operation = "enc";
+        } else {
+            int modeIndex = argList.indexOf("-mode");
+            operation = args[modeIndex + 1];
+        }
+
+        if (!argList.contains("-data")) {
+            message = "";
+        } else {
+            int dataIndex = argList.indexOf("-data");
+            message = args[dataIndex + 1];
+        }
+
+        if (!argList.contains("-key")) {
+            keyInput = "5";
+        } else {
+            int keyIndex = argList.indexOf("-key");
+            keyInput = args[keyIndex + 1];
+        }
+
         int key = Integer.parseInt(keyInput);
 
         String output;
@@ -26,19 +55,6 @@ public class Main {
 
         char[] messageArr = message.toCharArray();
 
-//        for (int i = 0; i < messageArr.length; i++) {
-//            char letter = messageArr[i];
-//            int asciiCode = letter;
-//
-//            if (asciiCode >= 97 && asciiCode <= 122) {
-//                int newAsciiCode = asciiCode + key;
-//                if (newAsciiCode > 122) {
-//                    newAsciiCode = 96 + (newAsciiCode % 122);
-//                }
-//                char newLetter = (char) newAsciiCode;
-//                messageArr[i] = newLetter;
-//            }
-//        }
         for (int i = 0; i < messageArr.length; i++) {
             char letter = messageArr[i];
             int asciiCode = letter;
