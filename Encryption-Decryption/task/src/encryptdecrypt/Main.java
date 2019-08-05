@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         String message = scanner.nextLine();
-        int key = scanner.nextInt();
+        String keyInput = scanner.nextLine();
+        int key = Integer.parseInt(keyInput);
 
         char[] messageArr = message.toCharArray();
 
